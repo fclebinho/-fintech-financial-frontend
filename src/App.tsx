@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useQuery } from '@apollo/client';
+import TEST_FIELD from './querys/index';
 
-function App() {
+interface AppProps {
+  idToken: String
+}
+
+const App: React.FC<AppProps> = ({ idToken }) => {
+
+  const { loading, error, data } = useQuery(TEST_FIELD);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>an error occurred...</p>;
+  }
+
+  console.log(data);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>Hello World</div>
   );
 }
 
