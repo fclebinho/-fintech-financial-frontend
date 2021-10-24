@@ -1,9 +1,18 @@
 import { gql } from "@apollo/client";
 
-const TEST_FIELD = gql`
+const ENTRIES_QUERY = gql`
   query {
-    testField
+    entries {
+      amount
+      createdAt
+      description
+      dueDate
+      id
+      kind
+      status
+      updatedAt
+    }
   }
 `;
 
-export default TEST_FIELD;
+export default ENTRIES_QUERY;

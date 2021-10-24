@@ -1,6 +1,6 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
-import TEST_FIELD from './querys/index';
+import { BrowserRouter } from "react-router-dom";
+import Routes from './routes';
 
 interface AppProps {
   idToken: String
@@ -8,20 +8,10 @@ interface AppProps {
 
 const App: React.FC<AppProps> = ({ idToken }) => {
 
-  const { loading, error, data } = useQuery(TEST_FIELD);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>an error occurred...</p>;
-  }
-
-  console.log(data);
-
   return (
-    <div>Hello World</div>
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
   );
 }
 
