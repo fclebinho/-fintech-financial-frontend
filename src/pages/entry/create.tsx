@@ -14,7 +14,8 @@ import {
   FormLabel,
   Input,
   Select,
-  Textarea
+  Textarea,
+  useToast
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { useMutation } from '@apollo/client';
@@ -23,6 +24,7 @@ import { ADD_ENTRY } from '../../graphql/mutations';
 const EntryCreate: React.FC = () => {
   const { pathname } = useLocation();
   const { goBack } = useHistory();
+  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [addEntry, { loading, error }] = useMutation(ADD_ENTRY);
 
@@ -57,6 +59,14 @@ const EntryCreate: React.FC = () => {
       }
     }).then((response) => { 
       console.log(JSON.stringify(response.data.entry.entry));
+
+      toast({
+        title: "Lançamento criado.",
+        description: "Criamos com carinho seu lançamento.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      })
     }); 
 
     onClose();
