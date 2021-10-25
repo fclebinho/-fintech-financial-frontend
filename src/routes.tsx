@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 
-import EntryList from './pages/entry/list';
+import { EntryListPage } from './pages';
 
 const Routes = () => {
   return (
@@ -10,7 +10,7 @@ const Routes = () => {
         <Redirect to="/entries" />
       </Route>
       <Route path='/entries'>
-        <EntryList />
+        <EntryListPage />
       </Route>
     </Switch>
   )
