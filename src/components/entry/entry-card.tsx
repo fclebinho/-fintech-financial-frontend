@@ -1,4 +1,5 @@
 import React from 'react';
+import { Grid, Box } from '@chakra-ui/react';
 import { EntryProps } from '../../types';
 
 interface EntryCardProps {
@@ -7,12 +8,20 @@ interface EntryCardProps {
 
 const EntryCard: React.FC<EntryCardProps> = ({ entry }) => {
   return (
-    <div>
-      <span>{entry.dueDate}</span>
-      <span>{entry.description}</span>
-      <span>{entry.status}</span>
-      <span>{entry.amount}</span>
-    </div>
+    <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+      <Box w="100%" h="10">
+        {entry.dueDate}
+      </Box>
+      <Box w="100%" h="10">
+        {entry.description}
+      </Box>
+      <Box w="100%" h="10">
+        {entry.status}
+      </Box>
+      <Box w="100%" h="10">
+        {entry.amount}
+      </Box>
+    </Grid>
   );
 }
 
