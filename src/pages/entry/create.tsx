@@ -13,9 +13,6 @@ import {
   Box,
   FormLabel,
   Input,
-  InputGroup,
-  InputLeftAddon,
-  InputRightAddon,
   Select,
   Textarea
 } from "@chakra-ui/react";
@@ -27,7 +24,7 @@ const EntryCreate: React.FC = () => {
   const { pathname } = useLocation();
   const { goBack } = useHistory();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [addEntry, { data, loading, error }] = useMutation(ADD_ENTRY);
+  const [addEntry, { loading, error }] = useMutation(ADD_ENTRY);
 
   useEffect(() => {
     /create/gi.test(pathname) && onOpen();
