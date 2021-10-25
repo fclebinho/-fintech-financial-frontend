@@ -57,10 +57,10 @@ const EntryCreate: React.FC = () => {
       }
     }).then((response) => { 
       console.log(JSON.stringify(response.data.entry.entry));
-    }).finally(() => {
-      onClose();
-      goBack();
     }); 
+
+    onClose();
+    goBack();
   }
   
   return (
