@@ -2,14 +2,14 @@ import { gql } from "@apollo/client";
 
 const ENTRIES_QUERY = gql`
   query {
-    entries {
-      amount
-      createdAt
+    getEntries {
+      id
       description
       dueDate
-      id
       kind
       status
+      amount
+      createdAt
       updatedAt
     }
   }
