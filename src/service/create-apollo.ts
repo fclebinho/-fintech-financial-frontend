@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 export const createApolloClient = (authToken: String) => {
   return new ApolloClient({
     link: new HttpLink({
-      uri: 'https://staging-financial-api.herokuapp.com/graphql',
+      uri: process.env.REACT_APP_APOLLO_SERVER_URL,
       headers: {
         Authorization: `Bearer ${authToken}`
       }
